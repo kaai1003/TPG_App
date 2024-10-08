@@ -11,7 +11,7 @@ class Supplier(BaseModel, Base):
         BaseModel (Class): base model class
         Base (Class): SqlAlchemy declarative Base
     """
-    __table__ = 'suppliers'
+    __tablename__ = 'suppliers'
     name = Column("name", String(128), nullable=False)
     type = Column("type", String(128), nullable=False)
     user_id = Column("user_id", String(128),

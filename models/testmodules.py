@@ -11,7 +11,7 @@ class TestModule(BaseModel, Base):
         BaseModel (Class): base model class
         Base (Class): SqlAlchemy declarative Base
     """
-    __table__ = 'testmodules'
+    __tablename__ = 'testmodules'
     serial_number = Column("serial_number", String(128), nullable=False)
     terminals = Column("terminals", Integer, nullable=False)
     pushback = Column("pushback", Boolean, nullable=False)
@@ -23,12 +23,12 @@ class TestModule(BaseModel, Base):
     probeid_1 = Column("probeid_1", String(128),
                       ForeignKey("testprobes.id"), nullable=False)
     probeid_2 = Column("probeid_2", String(128),
-                      ForeignKey("testprobes.id"), nullable=False)
+                      ForeignKey("testprobes.id"), nullable=True)
     probeid_3 = Column("probeid_3", String(128),
-                      ForeignKey("testprobes.id"), nullable=False)
+                      ForeignKey("testprobes.id"), nullable=True)
     probeid_4 = Column("probeid_4", String(128),
-                      ForeignKey("testprobes.id"), nullable=False)
+                      ForeignKey("testprobes.id"), nullable=True)
     probeid_5 = Column("probeid_5", String(128),
-                      ForeignKey("testprobes.id"), nullable=False)
+                      ForeignKey("testprobes.id"), nullable=True)
     user_id = Column("user_id", String(128),
                       ForeignKey("users.id"), nullable=False)

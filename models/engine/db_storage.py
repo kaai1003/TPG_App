@@ -22,7 +22,7 @@ class DBStorage:
     def __init__(self):
             """engine DB initialisation"""
             user = 'tpg_dev'
-            pwd = quote('tpg@12_34')
+            pwd = quote('Tpg@12_34')
             host = 'localhost'
             db = 'tpg_dev_db'
             self.__engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".

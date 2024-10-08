@@ -3,6 +3,8 @@
 from models.base import BaseModel, Base
 from sqlalchemy import Column, Integer, String, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
+from sqlalchemy.ext.declarative import declarative_base
+
 
 class Connector(BaseModel, Base):
     """Connetor class Definition
@@ -11,7 +13,7 @@ class Connector(BaseModel, Base):
         BaseModel (Class): base model class
         Base (Class): SqlAlchemy declarative Base
     """
-    __table__ = 'connectors'
+    __tablename__ = 'connectors'
     part_number = Column("serial_number", String(128), nullable=False)
     terminals = Column("terminals", Integer, nullable=False)
     photo = Column("photo", String(128), nullable=True)

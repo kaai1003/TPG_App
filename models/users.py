@@ -11,7 +11,7 @@ class User(BaseModel, Base):
         BaseModel (Class): base model class
         Base (Class): SqlAlchemy declarative Base
     """
-    __table__ = 'users'
+    __tablename__ = 'users'
     user = Column("user", String(128), nullable=False)
     password = Column("password", String(128), nullable=False)
     role = Column("role", String(128), nullable=False)

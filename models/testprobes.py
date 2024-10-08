@@ -11,7 +11,7 @@ class TestProbe(BaseModel, Base):
         BaseModel (Class): base model class
         Base (Class): SqlAlchemy declarative Base
     """
-    __table__ = 'testprobes'
+    __tablename__ = 'testprobes'
     serial_number = Column("serial_number", String(128), nullable=False)
     stock_location = Column("stock_location", String(128), nullable=False)
     pushback = Column("pushback", Boolean, nullable=False)

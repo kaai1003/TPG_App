@@ -39,7 +39,7 @@ def del_user(user_id):
         if obj.id == user_id:
             storage.delete(obj)
             storage.save()
-            return jsonify({}), 200
+            return jsonify({'message': 'user deleted...'}), 200
     abort(404)
 
 
@@ -49,12 +49,15 @@ def add_user():
     """create new user"""
     if request.is_json:
         dict = request.get_json()
-        if "email" not in dict.keys():
-            abort(400, "Missing email")
+        if "user" not in dict.keys():
+            abort(400, "Missing user")
         if "password" not in dict.keys():
             abort(400, "Missing password")
+        if "role" not in dict.keys():
+            abort(400, "Missing Role")
         new_user = User(**dict)
-        new_user.save()
+        storage.new(new_user)
+        storage.save()
         return jsonify(new_user.to_dict()), 201
     abort(400, "Not a JSON")
 
@@ -68,7 +71,7 @@ def update_user(user_id):
         if request.is_json:
             inputs = request.get_json()
             for key, value in inputs.items():
-                ignore = ['id', 'email', 'created_at', 'updated_at']
+                ignore = ['id', 'user', 'created_at', 'updated_at']
                 if key not in ignore:
                     setattr(user, key, value)
             user.save()

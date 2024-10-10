@@ -64,3 +64,10 @@ class BaseModel():
                 inst_dict[key] = value
         inst_dict['__class__'] = self.__class__.__name__
         return inst_dict
+
+    def save(self):
+        """save object instance"""
+        import models
+        self.updated_at = datetime.now()
+        models.storage.new(self)
+        models.storage.save()

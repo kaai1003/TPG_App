@@ -20,13 +20,5 @@ class TestModule(BaseModel, Base):
                       ForeignKey("suppliers.id"), nullable=False)
     connector_id = Column("connector_id", String(128),
                       ForeignKey("connectors.id"), nullable=False)
-    probeid_1 = Column("probeid_1", String(128),
+    probeid = Column("probeid", String(128),
                       ForeignKey("testprobes.id"), nullable=False)
-    probeid_2 = Column("probeid_2", String(128),
-                      ForeignKey("testprobes.id"), nullable=True)
-    probeid_3 = Column("probeid_3", String(128),
-                      ForeignKey("testprobes.id"), nullable=True)
-    probeid_4 = Column("probeid_4", String(128),
-                      ForeignKey("testprobes.id"), nullable=True)
-    probeid_5 = Column("probeid_5", String(128),
-                      ForeignKey("testprobes.id"), nullable=True)

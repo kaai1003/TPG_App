@@ -15,9 +15,9 @@ storage.new(new_user)
 storage.save()
 print(user)
 print('-------------Create suppliers------------')
-supplier1 = {'name': 'EMDEP', 'type': 'TestModules', 'user_id': new_user.id}
-supplier2 = {'name': 'Tyco', 'type': 'Connectors', 'user_id': new_user.id}
-supplier3 = {'name': 'Ingun', 'type': 'TestProbes', 'user_id': new_user.id}
+supplier1 = {'name': 'EMDEP', 'type': 'TestModules'}
+supplier2 = {'name': 'Tyco', 'type': 'Connectors'}
+supplier3 = {'name': 'Ingun', 'type': 'TestProbes'}
 suppl1 = Supplier(**supplier1)
 storage.new(suppl1)
 suppl2 = Supplier(**supplier2)
@@ -27,7 +27,7 @@ storage.new(suppl3)
 storage.save()
 print('suppliers added succesfully')
 print('-------------Create Connector------------')
-con1 = {'part_number': 'P00023432', 'terminals': 6, 'supplier_id': suppl2.id, 'user_id': new_user.id}
+con1 = {'part_number': 'P00023432', 'terminals': 6, 'supplier_id': suppl2.id}
 connector1 = Connector(**con1)
 storage.new(connector1)
 print(connector1)
@@ -35,8 +35,7 @@ print('-------------Create TestProbe------------')
 tb1 = {'serial_number': 'FZ0002',
        'stock_location': 'A23',
        'pushback': False,
-       'supplier_id': suppl3.id,
-       'user_id': new_user.id}
+       'supplier_id': suppl3.id}
 probe1 = TestProbe(**tb1)
 storage.new(probe1)
 storage.save()
@@ -47,8 +46,7 @@ tm1 = {'serial_number': 'P00023432',
        'pushback': False,
        'supplier_id': suppl1.id,
        'connector_id': connector1.id,
-       'probeid_1': probe1.id,
-       'user_id': new_user.id}
+       'probeid': probe1.id}
 testmodule1 = TestModule(**tm1)
 storage.new(testmodule1)
 print(testmodule1)

@@ -30,5 +30,3 @@ class TestModule(BaseModel, Base):
                       ForeignKey("testprobes.id"), nullable=True)
     probeid_5 = Column("probeid_5", String(128),
                       ForeignKey("testprobes.id"), nullable=True)
-    user_id = Column("user_id", String(128),
-                      ForeignKey("users.id"), nullable=False)

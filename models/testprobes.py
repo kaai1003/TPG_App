@@ -19,5 +19,4 @@ class TestProbe(BaseModel, Base):
     datasheet = Column("datasheet", String(128), nullable=True)
     supplier_id = Column("supplier_id", String(128),
                       ForeignKey("suppliers.id"), nullable=False)
-    user_id = Column("user_id", String(128),
-                      ForeignKey("users.id"), nullable=False)
+    testmodules = relationship("TestModule", backref="testprobes", cascade="delete")

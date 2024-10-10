@@ -14,5 +14,6 @@ class Supplier(BaseModel, Base):
     __tablename__ = 'suppliers'
     name = Column("name", String(128), nullable=False)
     type = Column("type", String(128), nullable=False)
-    user_id = Column("user_id", String(128),
-                      ForeignKey("users.id"), nullable=False)
+    testmodules = relationship("TestModule", backref="suppliers", cascade="delete")
+    testprobes = relationship("TestProbe", backref="suppliers", cascade="delete")
+    connectors = relationship("Connector", backref="suppliers", cascade="delete")

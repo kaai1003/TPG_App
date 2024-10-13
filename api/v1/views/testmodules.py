@@ -82,7 +82,7 @@ def add_testmodule():
 
 @app_views.route('/testmodules/<testmodule_id>', methods=['PUT'],
                  strict_slashes=False)
-def update_testprobe(testmodule_id):
+def update_testmodule(testmodule_id):
     """update testmodule"""
     testmodule = storage.get(TestModule, testmodule_id)
     if testmodule is not None:

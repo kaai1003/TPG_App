@@ -25,7 +25,7 @@ def get_user(user_id):
     """retrive user based on id"""
     all_users = storage.all(User)
     for obj in all_users.values():
-        if obj.id == user_id:
+        if obj.user == user_id:
             return jsonify(obj.to_dict()), 200
     abort(404)
 

@@ -1,5 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.app-title {
+  font-family: "Roboto", sans-serif;
+  font-size: 45px; /* Adjust the size based on your preference */
+  font-weight: 800; /* Make the font bold */
+  color: #1809ec; /* Stylish green color to match the theme */
+  text-align: center;
+  margin-bottom: 20px; /* Space between the title and the logo */
+}
+.logo {
+  width: 250px; /* Adjust the width as needed */
+  height: auto; /* Automatically adjust the height to maintain aspect ratio */
+  display: block;
+  margin: 0 auto 20px; /* Center the image and add margin below */
+  border: 5px solid #3c0de7da; /* Solid green border */
+  border-radius: 50%; /* Rounded border for circular image */
+  padding: 0px; /* Add space between the image and the border */
+}
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -8,21 +25,38 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #FFFFFF;
+  background: #f8d22a;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-.form input {
+.input-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Style the icon */
+.icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #888; /* Adjust icon color */
+}
+
+/* Style the input fields to accommodate the icons */
+.input-container input {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
   width: 100%;
   border: 0;
-  margin: 0 0 15px;
   padding: 15px;
+  padding-left: 40px; /* Add space for the icon */
   box-sizing: border-box;
   font-size: 14px;
 }
@@ -41,7 +75,7 @@
   cursor: pointer;
 }
 .form button:hover,.form button:active,.form button:focus {
-  background: #43A047;
+  background: #5e82e7;
 }
 .form .message {
   margin: 15px 0 0;

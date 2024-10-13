@@ -8,7 +8,8 @@ $(document).ready(function() {
       Swal.fire({
         title: 'Missing User',
         text: 'Missinig User Name!!!!',
-        icon: 'error'
+        icon: 'error',
+        width: '400px'
       });
       return;
     }
@@ -17,7 +18,8 @@ $(document).ready(function() {
       Swal.fire({
         title: 'Missing Password',
         text: 'Missinig User Password!!!!',
-        icon: 'error'
+        icon: 'error',
+        width: '400px'
       });
       return;
     }
@@ -33,7 +35,8 @@ $(document).ready(function() {
           Swal.fire({
             title: 'Login Successful',
             text: 'Welcome, ' + resp.user + '!!!!',
-            icon: 'success'
+            icon: 'success',
+            width: '400px'
           }).then(() => {
             // After alert is closed, redirect to another page (e.g., dashboard.html)
             window.location.href = './main.html';  // Change this to the desired URL
@@ -42,7 +45,8 @@ $(document).ready(function() {
           Swal.fire({
             title: 'Login Failed',
             text: 'User Password not Correct!!!!',
-            icon: 'error'
+            icon: 'error',
+            width: '400px'
           }); // Display failure message
         }
       },
@@ -50,7 +54,8 @@ $(document).ready(function() {
         Swal.fire({
           title: 'Login Failed',
           text: 'User not found!!!!',
-          icon: 'error'
+          icon: 'error',
+          width: '400px'
         });
       },
     });

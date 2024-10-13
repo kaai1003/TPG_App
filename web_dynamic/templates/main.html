@@ -5,154 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../static/styles/main.css">
     <link rel="icon" href="../static/images/icon.png" />
-    <title>Document</title>
+    <title>Responsive Stylish Page</title>
 </head>
 <body>
+    <header class="header">
+        <div class="container">
+            <h1>TestProbe Guide Dashboard</h1>
+        </div>
+    </header>
     <div class="container">
-        <div class="row" style="background-color: rgb(252, 252, 252);">
-            <div style="width: 20%;">
-              <nav >
-                <ul >
-                    <li>
-                       <a href="">
-                        <h1>Nav-item</h1>
-                       </a>
-                    </li>
-                    <li>
-                       <a href="">
-                        <h1>Nav-item</h1>
-                       </a>
-                    </li>
-                    <li>
-                       <a href="">
-                        <h1>Nav-item</h1>
-                       </a>
-                    </li>
-                    <li>
-                        <a href="">
-                         <h1>Nav-item</h1>
-                        </a>
-                     </li>
-                   
+        <div class="row">
+            <nav class="sidebar">
+                <ul>
+                    <li><a href="#">Connectors</a></li>
+                    <li><a href="#">TestProbes</a></li>
+                    <li><a href="#">TestModules</a></li>
+                    <li><a href="#">Suppliers</a></li>
+                    <li><a href="#">Users</a></li>
                 </ul>
-              </nav>
-            </div>
-            <div style="width: 70%;">
-                <div>
-                    <h1>Les Elements</h1>
-                  <form action="/search" method="POST"  class="row">
-                    <div style="width: 30%;display: flex;flex-direction: column;justify-content: space-between;" >
-                        <label for="">Categories <br> .</label>
-                        <select name="" id="">
-                            <option value="selected">Select Option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                            <option value="">option</option>
-                        </select>
-                    </div>
-                    <div  style="width: 30%;display: flex;flex-direction: column;">
-                        <label for=""><br> .</label>
-                        <input type="text" value=""  placeholder="search By .." >
-                    </div>
-                    <div  style="width: 30%;display: flex;flex-direction: column;">
-                        <label for=""><br> .</label>
-                        <button>Filter</button>
-                    </div>
-                  </form>
-                </div>
+            </nav>
+            <div class="content">
+                <section class="search-section">
+                    <h2>Les Elements</h2>
+                    <form action="/search" method="POST" class="filter-form">
+                        <div class="form-group">
+                            <label for="categories">Categories</label>
+                            <select name="categories" id="categories">
+                                <option value="selected">Select Option</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option value="option4">Option 4</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="search">Search By</label>
+                            <input type="text" name="search" id="search" placeholder="Search by ...">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Filter</button>
+                        </div>
+                    </form>
+                </section>
 
-
-                <div style="">
-                    <table class="table" style="width: 100%;">
+                <section class="table-section">
+                    <h2>Data Table</h2>
+                    <table class="table">
                         <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
-                          </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>First</th>
+                                <th>Last</th>
+                                <th>Handle</th>
+                            </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td >Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                          </tr>
-
-                          <tr>
-                            <th scope="row">3</th>
-                            <td >Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                          </tr>
-
-                          <tr>
-                            <th scope="row">3</th>
-                            <td >Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                          </tr>
-
-                          <tr>
-                            <th scope="row">3</th>
-                            <td >Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                          </tr>
-
-                          <tr>
-                            <th scope="row">3</th>
-                            <td >Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                          </tr>
+                            <tr><th>1</th><td>Mark</td><td>Otto</td><td>@mdo</td></tr>
+                            <tr><th>2</th><td>Jacob</td><td>Thornton</td><td>@fat</td></tr>
+                            <tr><th>3</th><td>Larry</td><td>@twitter</td><td>@twitter</td></tr>
                         </tbody>
-                      </table>
-                </div>
+                    </table>
+                </section>
             </div>
         </div>
     </div>

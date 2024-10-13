@@ -5,12 +5,20 @@ $(document).ready(function() {
     // Get the username and password values
     var username = $('input[placeholder="username"]').val();
     if (username === '') {
-      alert("Missinig User Name!!!!");
+      Swal.fire({
+        title: 'Missing User',
+        text: 'Missinig User Name!!!!',
+        icon: 'error'
+      });
       return;
     }
     var password = $('input[placeholder="password"]').val();
     if (password === '') {
-      alert("Missinig User Password!!!!");
+      Swal.fire({
+        title: 'Missing Password',
+        text: 'Missinig User Password!!!!',
+        icon: 'error'
+      });
       return;
     }
 
@@ -22,14 +30,28 @@ $(document).ready(function() {
         // Handle success response
         console.log(resp)
         if (resp.password === password) {
-          alert('Welcome :' + resp.user); // Display success message
-          // You can redirect to a new page or take other actions
+          Swal.fire({
+            title: 'Login Successful',
+            text: 'Welcome, ' + resp.user + '!!!!',
+            icon: 'success'
+          }).then(() => {
+            // After alert is closed, redirect to another page (e.g., dashboard.html)
+            window.location.href = './main.html';  // Change this to the desired URL
+          });
         } else {
-          alert("User Password Not Correct!!!"); // Display failure message
+          Swal.fire({
+            title: 'Login Failed',
+            text: 'User Password not Correct!!!!',
+            icon: 'error'
+          }); // Display failure message
         }
       },
       error: function(xhr, status, err) {
-        alert("User Not Found");
+        Swal.fire({
+          title: 'Login Failed',
+          text: 'User not found!!!!',
+          icon: 'error'
+        });
       },
     });
   });

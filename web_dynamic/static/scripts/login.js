@@ -30,7 +30,7 @@ $(document).ready(function() {
       type: 'GET',
       success: function(resp, status, xhr) {
         // Handle success response
-        console.log(resp)
+        console.log(resp);
         if (resp.password === password) {
           Swal.fire({
             title: 'Login Successful',

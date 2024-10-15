@@ -14,7 +14,7 @@ def get_connectors():
     """retrieve all connectors"""
     all_connectors = storage.all(Connector)
     list_connectors = []
-    for obj in all_connector.values():
+    for obj in all_connectors.values():
         list_connectors.append(obj.to_dict())
     return jsonify(list_connectors), 200
 

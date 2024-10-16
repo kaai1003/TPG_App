@@ -30,17 +30,9 @@ $(document).ready(function() {
       type: 'GET',
       success: function(resp, status, xhr) {
         // Handle success response
-        console.log(resp);
         if (resp.password === password) {
-          Swal.fire({
-            title: 'Login Successful',
-            text: 'Welcome, ' + resp.user + '!!!!',
-            icon: 'success',
-            width: '400px'
-          }).then(() => {
-            // After alert is closed, redirect to another page (e.g., dashboard.html)
-            window.location.href = './main.html';  // Change this to the desired URL
-          });
+          // i want to go to another html page using flask jinja2 main/<user_id>
+          window.location.href = `/main/${resp.id}`;
         } else {
           Swal.fire({
             title: 'Login Failed',

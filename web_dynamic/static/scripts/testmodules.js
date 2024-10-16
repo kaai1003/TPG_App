@@ -20,26 +20,6 @@ $(document).ready(function() {
 			$("#selectAll").prop("checked", false);
 		}
 	});
-  const catgs = document.querySelectorAll('.sidebar a');
-  catgs.forEach(function(catg) {
-    catg.addEventListener('click', function(e) {
-      e.preventDefault();
-      const catgText = this.innerText;
-      if (catgText === ' Connectors') {
-        window.location.href = `/main/connectors`;
-      }
-      if (catgText === ' TestProbes') {
-        window.location.href = `/main/TestProbes`;
-      }
-      if (catgText === ' TestModules') {
-        window.location.href = `/main/TestModules`;
-      }
-      if (catgText === ' Suppliers') {
-        window.location.href = `/main/Suppliers`;
-      }
-      return;
-    });
-  });
 	$('#addForm').on("submit", function(event) {
     event.preventDefault();  // Prevent the default form submission
 

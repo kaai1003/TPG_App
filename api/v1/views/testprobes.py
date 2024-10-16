@@ -47,7 +47,7 @@ def get_tp_of_supplier(supplier_id):
 def del_testprobe(testprobe_id):
     """delete testprobe"""
     all_testprobes = storage.all(TestProbe)
-    for obj in list_testprobes.values():
+    for obj in all_testprobes.values():
         if obj.id == testprobe_id:
             storage.delete(obj)
             storage.save()
@@ -69,10 +69,10 @@ def add_testprobe():
             abort(400, "Missing testprobe pushback status")
         if "supplier_id" not in dict.keys():
             abort(400, "Missing testprobe supplier id")
-        new_user = TestProbe(**dict)
-        storage.new(new_user)
+        new_tp = TestProbe(**dict)
+        storage.new(new_tp)
         storage.save()
-        return jsonify(new_user.to_dict()), 201
+        return jsonify(new_tp.to_dict()), 201
     abort(400, "Not a JSON")
 
 

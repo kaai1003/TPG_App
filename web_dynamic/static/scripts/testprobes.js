@@ -43,12 +43,26 @@ $(document).ready(function() {
 	$('#addForm').on("submit", function(event) {
     event.preventDefault();  // Prevent the default form submission
 
-        // Collect form data
+    // Collect form data
+    let pushBack = $('#addEmployeeModal').find('#pushback').val();
+    if (pushBack === 'true') {
+      pushBack = true;
+    } else if (pushBack === 'false') {
+      pushBack = false;
+    } else {
+      Swal.fire({
+        title: 'Error Pusback',
+        text: 'Pushback should true or false!!!!',
+        icon: 'error',
+        width: '400px'
+      });
+      return;
+    }
 		const formData = {
 			'serial_number': $('#addEmployeeModal').find('#serial_number').val(),
-			'terminals': $('#addEmployeeModal').find('#terminals').val(),
-			'supplier_id': $('#addEmployeeModal').find('#supplier_id').val(),
-			'photo': $('#addEmployeeModal').find('#photo').val()
+			'stock_location': $('#addEmployeeModal').find('#stock_location').val(),
+      'pushback': pushBack,
+			'supplier_id': $('#addEmployeeModal').find('#supplier_id').val()
 		};
         
         // Example: Logging form data (you can modify it to send the data using AJAX)
@@ -56,14 +70,14 @@ $(document).ready(function() {
 
         // You can now send the form data using AJAX
 		$.ajax({
-			url: 'http://localhost:5000/api/v1/connectors', // The Flask API endpoint
+			url: 'http://localhost:5000/api/v1/testprobes', // The Flask API endpoint
 			type: 'POST',
 			contentType: 'application/json',
 			data: JSON.stringify(formData),
 			success: function(resp) {
 			  // Handle success response
 			  console.log(resp)
-        window.location.href = `/main/connectors`;
+        window.location.href = `/main/TestProbes`;
 			},
 			error: function(err) {
 			  console.log(err);
@@ -74,15 +88,15 @@ $(document).ready(function() {
     const itemId = $(this).data('id');
     // Fetch item details and populate the edit modal
     $.ajax({
-      url: 'http://localhost:5000/api/v1/connectors/' + itemId, // The Flask API endpoint
+      url: 'http://localhost:5000/api/v1/testprobes/' + itemId, // The Flask API endpoint
       type: 'GET',
       success: function(resp) {
         // Handle success response
         console.log(resp);
         $('#editEmployeeModal').find('#serial_number').val(resp.serial_number);
-        $('#editEmployeeModal').find('#terminals').val(resp.terminals);
+        $('#editEmployeeModal').find('#stock_location').val(resp.stock_location);
+        $('#editEmployeeModal').find('#pushback').val(resp.pushback);
         $('#editEmployeeModal').find('#supplier_id').val(resp.supplier_id);
-        $('#editEmployeeModal').find('#photo').val(resp.photo);
       },
       error: function(err) {
         console.log(err);
@@ -92,19 +106,19 @@ $(document).ready(function() {
       event.preventDefault();
       const formData = {
         'serial_number': $('#editEmployeeModal').find('#serial_number').val(),
-        'terminals': $('#editEmployeeModal').find('#terminals').val(),
-        'supplier_id': $('#editEmployeeModal').find('#supplier_id').val(),
-        'photo': $('#editEmployeeModal').find('#photo').val()
+        'stock_location': $('#editEmployeeModal').find('#stock_location').val(),
+        'puchback': $('#editEmployeeModal').find('#puchback').val(),
+        'supplier_id': $('#editEmployeeModal').find('#supplier_id').val()
       };
       $.ajax({
-        url: 'http://localhost:5000/api/v1/connectors/' + itemId, // The Flask API endpoint
+        url: 'http://localhost:5000/api/v1/testprobes/' + itemId, // The Flask API endpoint
         type: 'PUT',
         contentType: 'application/json',
         data: JSON.stringify(formData),
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/main/connectors`;
+          window.location.href = `/main/testprobes`;
         },
         error: function(err) {
           console.log(err);
@@ -117,12 +131,12 @@ $(document).ready(function() {
     $('#deleteForm').on("submit", function(event) {
       event.preventDefault();
       $.ajax({
-        url: 'http://localhost:5000/api/v1/connectors/' + itemId, // The Flask API endpoint
+        url: 'http://localhost:5000/api/v1/testprobes/' + itemId, // The Flask API endpoint
         type: 'DELETE',
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/main/connectors`;
+          window.location.href = `/main/testprobes`;
         },
         error: function(err) {
           console.log(err);

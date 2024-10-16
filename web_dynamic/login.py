@@ -28,7 +28,7 @@ def main(user_id):
 @app.route('/main/connectors', strict_slashes=False)
 def connectors():
     """ connectors page serve! """
-    headers = ['ID', 'part_number', 'terminals', 'supplier_id', 'Actions']
+    headers = ['ID', 'serial_number', 'terminals', 'supplier_id', 'Actions']
     all_connectors = storage.all(Connector)
     connectors = []
     for obj in all_connectors.values():
@@ -38,6 +38,22 @@ def connectors():
     return render_template('connectors.html',
                            headers=headers,
                            items=connectors,
+                           tbtitle=tbtitle,
+                           forms=forms)
+
+@app.route('/main/TestProbes', strict_slashes=False)
+def testprobes():
+    """ testprobes page serve! """
+    headers = ['ID', 'serial_number', 'stock_location', 'pushback', 'supplier_id', 'Actions']
+    all_testprobes = storage.all(TestProbe)
+    testprobes = []
+    for obj in all_testprobes.values():
+        testprobes.append(obj.to_dict())
+    tbtitle = 'TestProbes'
+    forms = ['serial_number', 'stock_location', 'pushback', 'supplier_id']
+    return render_template('testprobes.html',
+                           headers=headers,
+                           items=testprobes,
                            tbtitle=tbtitle,
                            forms=forms)
 

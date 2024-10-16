@@ -31,7 +31,7 @@ $(document).ready(function() {
       success: function(resp, status, xhr) {
         // Handle success response
         if (resp.password === password) {
-          // i want to go to another html page using flask jinja2 main/<user_id>
+          // rederict to main page
           window.location.href = `/main/${resp.id}`;
         } else {
           Swal.fire({

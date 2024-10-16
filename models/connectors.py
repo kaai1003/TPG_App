@@ -14,7 +14,7 @@ class Connector(BaseModel, Base):
         Base (Class): SqlAlchemy declarative Base
     """
     __tablename__ = 'connectors'
-    part_number = Column("serial_number", String(128), nullable=False)
+    serial_number = Column("serial_number", String(128), nullable=False)
     terminals = Column("terminals", Integer, nullable=False)
     photo = Column("photo", String(128), nullable=True)
     supplier_id = Column("supplier_id", String(128),

@@ -61,16 +61,16 @@ def add_connector():
     """create new connector"""
     if request.is_json:
         dict = request.get_json()
-        if "connector" not in dict.keys():
+        if "serial_number" not in dict.keys():
             abort(400, "Missing connector")
-        if "password" not in dict.keys():
+        if "terminals" not in dict.keys():
             abort(400, "Missing password")
-        if "role" not in dict.keys():
+        if "supplier_id" not in dict.keys():
             abort(400, "Missing Role")
-        new_user = Connector(**dict)
-        storage.new(new_user)
+        new_connector = Connector(**dict)
+        storage.new(new_connector)
         storage.save()
-        return jsonify(new_user.to_dict()), 201
+        return jsonify(new_connector.to_dict()), 201
     abort(400, "Not a JSON")
 
 
@@ -83,7 +83,7 @@ def update_connector(connector_id):
         if request.is_json:
             inputs = request.get_json()
             for key, value in inputs.items():
-                ignore = ['id', 'connector', 'created_at', 'updated_at']
+                ignore = ['id', 'created_at', 'updated_at']
                 if key not in ignore:
                     setattr(connector, key, value)
             connector.save()

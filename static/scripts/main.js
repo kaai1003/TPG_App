@@ -27,24 +27,24 @@ $(document).ready(function() {
   headTable.empty();
   dataTable.empty();
   // Upload Data According to Clicked Category
-  const catgs = document.querySelectorAll('.sidebar a');
-  catgs.forEach(function(catg) {
-    catg.addEventListener('click', function(e) {
-      e.preventDefault();
-      const catgText = this.innerText;
-      if (catgText === ' Connectors') {
-        window.location.href = `/main/connectors`;
-      }
-      if (catgText === ' TestProbes') {
-        window.location.href = `/main/TestProbes`;
-      }
-      if (catgText === ' TestModules') {
-        window.location.href = `/main/TestModules`;
-      }
-      if (catgText === ' Suppliers') {
-        window.location.href = `/main/Suppliers`;
-      }
-      return;
-    });
-  });
+  // const catgs = document.querySelectorAll('.sidebar a');
+  // catgs.forEach(function(catg) {
+  //   catg.addEventListener('click', function(e) {
+  //     e.preventDefault();
+  //     const catgText = this.innerText;
+  //     if (catgText === ' Connectors') {
+  //       window.location.href = `/connectors`;
+  //     }
+  //     if (catgText === ' TestProbes') {
+  //       window.location.href = `/TestProbes`;
+  //     }
+  //     if (catgText === ' TestModules') {
+  //       window.location.href = `/TestModules`;
+  //     }
+  //     if (catgText === ' Suppliers') {
+  //       window.location.href = `/Suppliers`;
+  //     }
+  //     return;
+  //   });
+  // });
 });

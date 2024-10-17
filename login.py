@@ -25,7 +25,7 @@ def main(user_id):
             return render_template('main.html')
     return render_template('login.html')
 
-@app.route('/main/connectors', strict_slashes=False)
+@app.route('/connectors', strict_slashes=False)
 def connectors():
     """ connectors page serve! """
     headers = ['ID', 'serial_number', 'terminals', 'supplier_id', 'Actions']
@@ -41,7 +41,7 @@ def connectors():
                            tbtitle=tbtitle,
                            forms=forms)
 
-@app.route('/main/TestProbes', strict_slashes=False)
+@app.route('/TestProbes', strict_slashes=False)
 def testprobes():
     """ testprobes page serve! """
     headers = ['ID', 'serial_number', 'stock_location', 'pushback', 'supplier_id', 'Actions']
@@ -57,6 +57,21 @@ def testprobes():
                            tbtitle=tbtitle,
                            forms=forms)
 
+@app.route('/Suppliers', strict_slashes=False)
+def suppliers():
+    """ suppliers page serve! """
+    headers = ['ID', 'name', 'type', 'Actions']
+    all_suppliers = storage.all(Supplier)
+    suppliers = []
+    for obj in all_suppliers.values():
+        suppliers.append(obj.to_dict())
+    tbtitle = 'Suppliers'
+    forms = ['name', 'type']
+    return render_template('suppliers.html',
+                           headers=headers,
+                           items=suppliers,
+                           tbtitle=tbtitle,
+                           forms=forms)
 
 if __name__ == "__main__":
     """ Main Function """

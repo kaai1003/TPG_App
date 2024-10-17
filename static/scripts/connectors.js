@@ -20,6 +20,26 @@ $(document).ready(function() {
 			$("#selectAll").prop("checked", false);
 		}
 	});
+  // const catgs = document.querySelectorAll('.sidebar a');
+  // catgs.forEach(function(catg) {
+  //   catg.addEventListener('click', function(e) {
+  //     e.preventDefault();
+  //     const catgText = this.innerText;
+  //     if (catgText === ' Connectors') {
+  //       window.location.href = `/connectors`;
+  //     }
+  //     if (catgText === ' TestProbes') {
+  //       window.location.href = `/TestProbes`;
+  //     }
+  //     if (catgText === ' TestModules') {
+  //       window.location.href = `/TestModules`;
+  //     }
+  //     if (catgText === ' Suppliers') {
+  //       window.location.href = `/Suppliers`;
+  //     }
+  //     return;
+  //   });
+  // });
 	$('#addForm').on("submit", function(event) {
     event.preventDefault();  // Prevent the default form submission
 
@@ -43,7 +63,7 @@ $(document).ready(function() {
 			success: function(resp) {
 			  // Handle success response
 			  console.log(resp)
-        window.location.href = `/main/connectors`;
+        window.location.href = `/connectors`;
 			},
 			error: function(err) {
 			  console.log(err);
@@ -84,7 +104,7 @@ $(document).ready(function() {
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/main/connectors`;
+          window.location.href = `/connectors`;
         },
         error: function(err) {
           console.log(err);
@@ -102,7 +122,7 @@ $(document).ready(function() {
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/main/connectors`;
+          window.location.href = `/connectors`;
         },
         error: function(err) {
           console.log(err);

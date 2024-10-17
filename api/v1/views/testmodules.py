@@ -61,6 +61,7 @@ def add_testmodule():
     """create new testmodule"""
     if request.is_json:
         dict = request.get_json()
+        print(dict)
         if "serial_number" not in dict.keys():
             abort(400, "Missing testmodule serial_number")
         if "terminals" not in dict.keys():
@@ -73,10 +74,10 @@ def add_testmodule():
             abort(400, "Missing testmodule connector id")
         if "probeid" not in dict.keys():
             abort(400, "Missing testmodule testprobe id")
-        new_user = TestModule(**dict)
-        storage.new(new_user)
+        new_tm = TestModule(**dict)
+        storage.new(new_tm)
         storage.save()
-        return jsonify(new_user.to_dict()), 201
+        return jsonify(new_tm.to_dict()), 201
     abort(400, "Not a JSON")
 
 

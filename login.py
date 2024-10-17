@@ -16,6 +16,7 @@ def login():
     """ login page serve! """
     return render_template('login.html')
 
+
 @app.route('/main/<user_id>', strict_slashes=False)
 def main(user_id):
     """ main page serve! """
@@ -24,6 +25,7 @@ def main(user_id):
         if obj.id == user_id:
             return render_template('main.html')
     return render_template('login.html')
+
 
 @app.route('/connectors', strict_slashes=False)
 def connectors():
@@ -41,10 +43,16 @@ def connectors():
                            tbtitle=tbtitle,
                            forms=forms)
 
+
 @app.route('/TestProbes', strict_slashes=False)
 def testprobes():
     """ testprobes page serve! """
-    headers = ['ID', 'serial_number', 'stock_location', 'pushback', 'supplier_id', 'Actions']
+    headers = ['ID',
+               'serial_number',
+               'stock_location',
+               'pushback',
+               'supplier_id',
+               'Actions']
     all_testprobes = storage.all(TestProbe)
     testprobes = []
     for obj in all_testprobes.values():
@@ -56,6 +64,7 @@ def testprobes():
                            items=testprobes,
                            tbtitle=tbtitle,
                            forms=forms)
+
 
 @app.route('/Suppliers', strict_slashes=False)
 def suppliers():
@@ -72,6 +81,36 @@ def suppliers():
                            items=suppliers,
                            tbtitle=tbtitle,
                            forms=forms)
+
+
+@app.route('/TestModules', strict_slashes=False)
+def testmodules():
+    """ testmodules page serve! """
+    headers = ['ID',
+               'serial_number',
+               'terminals',
+               'pushback',
+               'supplier_id',
+               'connector_id',
+               'probeid',
+               'Actions']
+    all_testmodules = storage.all(TestModule)
+    testmodules = []
+    for obj in all_testmodules.values():
+        testmodules.append(obj.to_dict())
+    tbtitle = 'TestModules'
+    forms = ['serial_number',
+             'terminals',
+             'pushback',
+             'supplier_id',
+             'connector_id',
+             'probeid']
+    return render_template('testmodules.html',
+                           headers=headers,
+                           items=testmodules,
+                           tbtitle=tbtitle,
+                           forms=forms)
+
 
 if __name__ == "__main__":
     """ Main Function """

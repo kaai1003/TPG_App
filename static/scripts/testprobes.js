@@ -118,7 +118,7 @@ $(document).ready(function() {
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/testprobes`;
+          window.location.href = `/TestProbes`;
         },
         error: function(err) {
           console.log(err);
@@ -136,7 +136,7 @@ $(document).ready(function() {
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/testprobes`;
+          window.location.href = `/TestProbes`;
         },
         error: function(err) {
           console.log(err);

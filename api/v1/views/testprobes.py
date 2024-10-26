@@ -87,7 +87,7 @@ def update_testprobe(testprobe_id):
             for key, value in inputs.items():
                 ignore = ['id', 'serial_number', 'created_at', 'updated_at']
                 if key not in ignore:
-                    setattr(testprobe, key, value)
+                    setattr(testprobe, key, value)    
             testprobe.save()
             return jsonify(testprobe.to_dict()), 200
         abort(400, "Not a JSON")

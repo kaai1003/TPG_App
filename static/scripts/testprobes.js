@@ -20,26 +20,6 @@ $(document).ready(function() {
 			$("#selectAll").prop("checked", false);
 		}
 	});
-  // const catgs = document.querySelectorAll('.sidebar a');
-  // catgs.forEach(function(catg) {
-  //   catg.addEventListener('click', function(e) {
-  //     e.preventDefault();
-  //     const catgText = this.innerText;
-  //     if (catgText === ' Connectors') {
-  //       window.location.href = `/connectors`;
-  //     }
-  //     if (catgText === ' TestProbes') {
-  //       window.location.href = `/TestProbes`;
-  //     }
-  //     if (catgText === ' TestModules') {
-  //       window.location.href = `/TestModules`;
-  //     }
-  //     if (catgText === ' Suppliers') {
-  //       window.location.href = `/Suppliers`;
-  //     }
-  //     return;
-  //   });
-  // });
 	$('#addForm').on("submit", function(event) {
     event.preventDefault();  // Prevent the default form submission
 
@@ -104,10 +84,24 @@ $(document).ready(function() {
     });
     $('#editForm').on("submit", function(event) {
       event.preventDefault();
+      let pushBack = $('#editEmployeeModal').find('#pushback').val();
+    if (pushBack === 'true') {
+      pushBack = true;
+    } else if (pushBack === 'false') {
+      pushBack = false;
+    } else {
+      Swal.fire({
+        title: 'Error Pusback',
+        text: 'Pushback should true or false!!!!',
+        icon: 'error',
+        width: '400px'
+      });
+      return;
+    }
       const formData = {
         'serial_number': $('#editEmployeeModal').find('#serial_number').val(),
         'stock_location': $('#editEmployeeModal').find('#stock_location').val(),
-        'puchback': $('#editEmployeeModal').find('#puchback').val(),
+        "pushback": pushBack,
         'supplier_id': $('#editEmployeeModal').find('#supplier_id').val()
       };
       $.ajax({
@@ -117,6 +111,7 @@ $(document).ready(function() {
         data: JSON.stringify(formData),
         success: function(resp) {
           // Handle success response
+          console.log(formData);
           console.log(resp)
           window.location.href = `/TestProbes`;
         },

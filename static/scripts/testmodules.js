@@ -20,26 +20,6 @@ $(document).ready(function() {
 			$("#selectAll").prop("checked", false);
 		}
 	});
-  // const catgs = document.querySelectorAll('.sidebar a');
-  // catgs.forEach(function(catg) {
-  //   catg.addEventListener('click', function(e) {
-  //     e.preventDefault();
-  //     const catgText = this.innerText;
-  //     if (catgText === ' Connectors') {
-  //       window.location.href = `/connectors`;
-  //     }
-  //     if (catgText === ' TestProbes') {
-  //       window.location.href = `/TestProbes`;
-  //     }
-  //     if (catgText === ' TestModules') {
-  //       window.location.href = `/TestModules`;
-  //     }
-  //     if (catgText === ' Suppliers') {
-  //       window.location.href = `/Suppliers`;
-  //     }
-  //     return;
-  //   });
-  // });
 	$('#addForm').on("submit", function(event) {
     event.preventDefault();  // Prevent the default form submission
 
@@ -79,7 +59,7 @@ $(document).ready(function() {
 			success: function(resp) {
 			  // Handle success response
 			  console.log(resp)
-        window.location.href = `/TestProbes`;
+        window.location.href = `/TestModules`;
 			},
 			error: function(err) {
 			  console.log(err);
@@ -108,10 +88,24 @@ $(document).ready(function() {
     });
     $('#editForm').on("submit", function(event) {
       event.preventDefault();
+      let pushBack = $('#editEmployeeModal').find('#pushback').val();
+    if (pushBack === 'true') {
+      pushBack = true;
+    } else if (pushBack === 'false') {
+      pushBack = false;
+    } else {
+      Swal.fire({
+        title: 'Error Pusback',
+        text: 'Pushback should true or false!!!!',
+        icon: 'error',
+        width: '400px'
+      });
+      return;
+    }
       const formData = {
         'serial_number': $('#editEmployeeModal').find('#serial_number').val(),
         'terminals': $('#editEmployeeModal').find('#terminals').val(),
-        'puchback': $('#editEmployeeModal').find('#puchback').val(),
+        'pushback': pushBack,
         'supplier_id': $('#editEmployeeModal').find('#supplier_id').val(),
         'connector_id': $('#editEmployeeModal').find('#connector_id').val(),
         'probeid': $('#editEmployeeModal').find('#probeid').val()
@@ -124,7 +118,7 @@ $(document).ready(function() {
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/testmodules`;
+          window.location.href = `/TestModules`;
         },
         error: function(err) {
           console.log(err);
@@ -142,7 +136,7 @@ $(document).ready(function() {
         success: function(resp) {
           // Handle success response
           console.log(resp)
-          window.location.href = `/testmodules`;
+          window.location.href = `/TestModules`;
         },
         error: function(err) {
           console.log(err);

@@ -1,0 +1,25 @@
+<section class="search-section">
+    <h2>Dashboard</h2>
+    <form action="/search" method="POST" class="filter-form">
+        <div class="form-group">
+            <select name="category1" id="category1">
+                <option value="selected">Select Category</option>
+                <option value="connectors">Connectors</option>
+                <option value="testmodules">TestModules</option>
+                <option value="testprobes">TestProbes</option>
+                <option value="suppliers">Suppliers</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="category2" id="category2">
+                <option value="selected">Select Filter</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="text" name="search" id="search" placeholder="Search by ...">
+        </div>
+        <div class="btn-filter">
+            <button type="submit">Filter</button>
+        </div>
+    </form>
+</section>

@@ -58,7 +58,6 @@ The **TestProbes Guide** is a web-based application designed to assist maintenan
 
 4. **Set Up the Database**
    - Create your database in MySQL or the required database system.
-   - Update your database connection settings in the configuration file (if applicable).
    ```bash
    mysql -u root -p < setup_TPG_DB.sql
    ```
@@ -76,4 +75,4 @@ The **TestProbes Guide** is a web-based application designed to assist maintenan
    ```
 
 7. **Access the Application**
-   - Open your browser and go to `http://localhost:5001` (or the port defined in your application) to access the app.
+   - Open your browser and go to `http://localhost:5001` to access the app.

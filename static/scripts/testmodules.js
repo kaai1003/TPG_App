@@ -117,7 +117,6 @@ $(document).ready(function() {
         data: JSON.stringify(formData),
         success: function(resp) {
           // Handle success response
-          console.log(resp)
           window.location.href = `/TestModules`;
         },
         error: function(err) {
